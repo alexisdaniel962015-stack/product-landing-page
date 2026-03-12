@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Producto</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVEGACIÓN: se abre con <nav> y se cierra con </nav> -->
+  <nav>
+    <span class="nav-logo">Mi <b>Cafeteria</b></span>
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#producto">Producto</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="nav-acciones">
+      <button id="btn-modo" aria-label="Cambiar modo">🌙</button>
+      <a href="#contacto" class="nav-cta">Quiero probarlo</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <span class="hero-etiqueta">☕ Café de especialidad</span>
+      <h1>Café que uno merece<br>cada día</h1>
+      <p>Selecciona los mejores granos<br>de origen directo.</p>
+      <div class="hero-botones">
+        <a href="#producto" class="btn-principal">Ver producto</a>
+        <a href="#contacto" class="btn-secundario">Contactar</a>
+      </div>
+      <small>*Precios sujetos a cambios</small>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section id="producto">
+      <h2>Características</h2>
+      <ul>
+        <li>🌍 <strong>Origen único</strong> — Granos de Etiopía, Colombia y Guatemala.</li>
+        <li>⚡ <strong>Tostado fresco</strong> — Cada lote se tuesta el mismo día de tu pedido.</li>
+        <li>📦 <strong>Entrega en 24 h</strong> — En tu puerta mañana, con empaque biodegradable.</li>
+      </ul>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section>
+      <h2>Testimonios</h2>
+      <blockquote>
+        "Este producto cambió mi vida"
+        <cite>— Juan Pérez</cite>
+      </blockquote>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>¿Tienes alguna pregunta?</h2>
+      <p>Escríbenos y te respondemos en menos de 24 horas.</p>
+      <a href="mailto:contacto@miempresa.com">✉ contacto@miempresa.com</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mi cafeteria. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
