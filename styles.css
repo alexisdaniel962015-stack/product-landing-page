@@ -1,79 +1,115 @@
-/* ── MODO CLARO (por defecto) ── */
-body {
-  font-family: 'DM Sans', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  color: #333;
-  transition: background .3s, color .3s; /* animación suave al cambiar modo */
+:root {
+  --color-acento:  #c8f542;
+  --color-oscuro:  #0a0a0a;
+  --color-fondo:   #ffffff;
+  --color-texto:   #333333;
+  --color-suave:   #888888;
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'DM Sans', Arial, sans-serif;
+  --radio:         6px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── MODO CLARO (por defecto) ── */
+body {
+  font-family: var(--fuente-cuerpo);
+  margin: 0;
+  padding: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto) ;
+  transition: background .3s, color .3s; /* animación suave al cambiar modo */
+/*--imagen de fondo--*/
+background-image: url("modo-claro.jpg");
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
+}
+/* Capa modo claro — blanquecina y suave */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.60);
+  z-index: -1;
+  transition: background .3s;
+}
 /* ── MODO OSCURO ──
    Cuando el <body> tiene la clase "oscuro",
    estos colores reemplazan a los de arriba.
 */
 body.oscuro {
-  background: #111;
-  color: #f0ede6;
+  background: var(--color-oscuro);
+  color: var(--color-fondo);
+/*--imagen de fondo--*/
+background-image: url("modo-oscuro.jpg");
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
 }
-
+/* Capa modo oscuro — negra y más densa */
+body.oscuro::before {
+  background: rgba(0, 0, 0, 0.75);
+}
 /* ── NAVEGACIÓN ── */
 nav {
   background: rgba(10, 10, 10, 0.95);
   padding: 1rem 2rem;
-  display: flex;
+  display: flex; /* para alinear logo y enlaces en una fila */
   align-items: center;
-  justify-content: space-between;
-  position: sticky;
+  justify-content: space-between;/* para separar logo a la izquierda y enlaces a la derecha */
+  position: sticky; /* para que la barra de navegación se quede fija al hacer scroll */
   top: 0;
-  z-index: 100;
+  z-index: 100; /* para asegurarse de que la barra de navegación esté por encima de otros elementos al hacer scroll */
 }
 
 .nav-logo {
-  color: white;
-  font-family: 'Playfair Display', serif;
+  color: var(--color-acento);
+  font-family: var(--fuente-titulo);
   font-size: 1.3rem;
 }
-.nav-logo b { color: #c8f542; }
+.nav-logo b { color: var(--color-acento); }
 
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a { color: #aaa; text-decoration: none; font-size: .9rem; }
-.nav-links a:hover { color: white; }
+.nav-links { display: flex; gap: 2rem; }/* Para separar los enlaces entre sí */
+.nav-links a { color: var(--color-suave); text-decoration: none; font-size: .9rem; }
+.nav-links a:hover { color: var(--color-acento); }
 
 .nav-acciones {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem;/* Para separar el botón toggle del enlace de contacto */
 }
 
 /* Botón toggle ☀️/🌙 */
 #btn-modo {
   background: none;
-  border: 1px solid #444;
+  border: 1px solid var(--color-suave);
   border-radius: 6px;
-  color: white;
+  color: var(--color-fondo);
   font-size: 1.1rem;
   padding: .35rem .7rem;
   cursor: pointer;
   transition: border-color .2s;
 }
-#btn-modo:hover { border-color: #c8f542; }
+#btn-modo:hover { border-color: var(--color-acento); }
 
 .nav-cta {
-  background: #c8f542;
-  color: #000;
+  background: var(--color-acento);
+  color: var(--color-oscuro);
   text-decoration: none;
   padding: .5rem 1.2rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: .9rem;
 }
-.nav-cta:hover { background: #d6ff55; }
+.nav-cta:hover { background: var(--color-acento); }
 
 /* ── HERO ── */
 .hero {
-  background: #0a0a0a;
-  color: #f0ede6;
+  background: var(--color-oscuro);
+  color: var(--color-fondo);
   text-align: center;
   padding: 100px 2rem;
   transition: background .3s;
@@ -81,13 +117,13 @@ nav {
 
 /* En modo claro el hero cambia a gris muy oscuro para seguir viéndose bien */
 body:not(.oscuro) .hero {
-  background: #1a1a1a;
+  background: var(--color-oscuro);
 }
 
 .hero-etiqueta {
   display: inline-block;
   background: rgba(200, 245, 66, 0.12);
-  color: #c8f542;
+  color: var(--color-acento);
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -98,7 +134,7 @@ body:not(.oscuro) .hero {
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--fuente-titulo);
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 900;
   line-height: 1.05;
@@ -109,7 +145,7 @@ body:not(.oscuro) .hero {
 }
 
 .hero p {
-  color: #888;
+  color: var(--color-suave);
   font-size: 1.1rem;
   max-width: 520px;
   margin: 0 auto 2.5rem;
@@ -125,29 +161,29 @@ body:not(.oscuro) .hero {
 }
 
 .btn-principal {
-  background: #c8f542;
-  color: #000;
+  background: var(--color-acento);
+  color: var(--color-oscuro);
   text-decoration: none;
   padding: .75rem 1.8rem;
   border-radius: 6px;
   font-weight: 700;
   font-size: 1rem;
 }
-.btn-principal:hover { background: #d6ff55; }
+.btn-principal:hover { background: var(--color-acento); }
 
 .btn-secundario {
   background: transparent;
-  color: #f0ede6;
+  color: var(--color-fondo);
   text-decoration: none;
   padding: .75rem 1.8rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 1rem;
-  border: 1px solid #444;
+  border: 1px solid var(--color-suave);
 }
-.btn-secundario:hover { border-color: #c8f542; color: #c8f542; }
+.btn-secundario:hover { border-color: var(--color-acento); color: var(--color-acento); }
 
-.hero small { display: block; color: #555; font-size: .82rem; }
+.hero small { display: block; color: var(--color-suave); font-size: .82rem; }
 
 /* ── SECCIONES ── */
 section {
@@ -155,14 +191,16 @@ section {
   max-width: 800px;
   margin: 0 auto;
   transition: background .3s, color .3s;
+  background: transparent;
 }
 
 /* Secciones con fondo alternado — modo claro */
 section:nth-child(even) {
-  background: #f5f5f5;
+  background: transparent;
   max-width: 100%;
 }
 section:nth-child(even) > * {
+  background: transparent;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -170,7 +208,7 @@ section:nth-child(even) > * {
 
 /* Secciones con fondo alternado — modo oscuro */
 body.oscuro section:nth-child(even) {
-  background: #1a1a1a;
+  background: transparent;
 }
 
 h2 {
@@ -179,12 +217,12 @@ h2 {
   transition: color .3s;
 }
 
-body:not(.oscuro) h2 { color: #111; }
-body.oscuro h2 { color: #f0ede6; }
+body:not(.oscuro) h2 { color: var(--color-oscuro); }
+body.oscuro h2 { color: var(--color-fondo); }
 
 p { line-height: 1.7; margin-bottom: 1rem; }
-body:not(.oscuro) p { color: #555; }
-body.oscuro p { color: #aaa; }
+body:not(.oscuro) p { color: var(--color-suave); }
+body.oscuro p { color: var(--color-suave); }
 
 /* ── LISTA ── */
 ul { list-style: none; padding: 0; }
@@ -198,12 +236,12 @@ ul li {
   transition: background .3s, color .3s, border-color .3s;
 }
 
-body:not(.oscuro) ul li { background: white; border-color: #eee; color: #444; }
-body.oscuro ul li { background: #222; border-color: #333; color: #ddd; }
+body:not(.oscuro) ul li { background: white; border-color: var(--color-suave); color: var(--color-oscuro); }
+body.oscuro ul li { background: var(--color-oscuro); border-color: var(--color-suave); color: var(--color-fondo); }
 
 /* ── TESTIMONIO ── */
 blockquote {
-  border-left: 4px solid #c8f542;
+  border-left: 4px solid var(--color-acento);
   padding-left: 1.2rem;
   font-style: italic;
   font-size: 1.05rem;
@@ -211,8 +249,8 @@ blockquote {
   margin: 0;
   transition: color .3s;
 }
-body:not(.oscuro) blockquote { color: #555; }
-body.oscuro blockquote { color: #aaa; }
+body:not(.oscuro) blockquote { color: var(--color-suave); }
+body.oscuro blockquote { color: var(--color-suave); }
 
 cite {
   display: block;
@@ -221,28 +259,28 @@ cite {
   font-weight: 600;
   transition: color .3s;
 }
-body:not(.oscuro) cite { color: #333; }
-body.oscuro cite { color: #eee; }
+body:not(.oscuro) cite { color: var(--color-oscuro); }
+body.oscuro cite { color: var(--color-fondo); }
 
 /* ── CONTACTO ── */
 #contacto a {
   display: inline-block;
   margin-top: .5rem;
-  color: #c8f542;
+  color: var(--color-acento);
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  background: #111;
+  background: var(--color-oscuro);
   padding: .75rem 1.5rem;
   border-radius: 6px;
   transition: background .2s;
 }
-#contacto a:hover { background: #1a1a1a; }
+#contacto a:hover { background: var(--color-oscuro); }
 
 /* ── FOOTER ── */
 footer {
-  background: #0a0a0a;
-  color: #555;
+  background: var(--color-oscuro);
+  color: var(--color-suave);
   text-align: center;
   padding: 1.5rem;
   font-size: .85rem;
