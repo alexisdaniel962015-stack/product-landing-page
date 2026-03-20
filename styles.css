@@ -26,6 +26,9 @@ background-image: url("modo-claro.jpg");
 background-size: cover;
 background-attachment: fixed;
 background-position: center;
+min-height: 100vh; /* Para asegurar que el fondo cubra toda la altura de la ventana */
+display: flex;/* Para centrar el contenido verticalmente */
+flex-direction: column;/* Para apilar el contenido en una columna */
 }
 /* Capa modo claro — blanquecina y suave */
 body::before {
@@ -45,13 +48,16 @@ body.oscuro {
   color: var(--color-fondo);
 /*--imagen de fondo--*/
 background-image: url("modo-oscuro.jpg");
-background-size: cover;
-background-attachment: fixed;
-background-position: center;
+background-size: cover;/* Para que la imagen de fondo cubra toda el área visible */
+background-attachment: fixed;/* Para que la imagen de fondo se quede fija al hacer scroll */
+background-position: center;/* Para centrar la imagen de fondo */
 }
 /* Capa modo oscuro — negra y más densa */
 body.oscuro::before {
   background: rgba(0, 0, 0, 0.75);
+}
+main {
+  flex: 1; /* Para que el main ocupe todo el espacio disponible entre header y footer */
 }
 /* ── NAVEGACIÓN ── */
 nav {
