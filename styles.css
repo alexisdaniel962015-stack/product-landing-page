@@ -58,7 +58,7 @@ nav {
   background: rgba(10, 10, 10, 0.95);
   padding: 1rem 2rem;
   display: flex; /* para alinear logo y enlaces en una fila */
-  align-items: center;
+  align-items: center;/* para centrar verticalmente el contenido de la barra de navegación */
   justify-content: space-between;/* para separar logo a la izquierda y enlaces a la derecha */
   position: sticky; /* para que la barra de navegación se quede fija al hacer scroll */
   top: 0;
@@ -66,19 +66,19 @@ nav {
 }
 
 .nav-logo {
-  color: var(--color-acento);
+  color: var(--color-fondo);
   font-family: var(--fuente-titulo);
   font-size: 1.3rem;
 }
 .nav-logo b { color: var(--color-acento); }
 
 .nav-links { display: flex; gap: 2rem; }/* Para separar los enlaces entre sí */
-.nav-links a { color: var(--color-suave); text-decoration: none; font-size: .9rem; }
-.nav-links a:hover { color: var(--color-acento); }
+.nav-links a { color: var(--color-suave); text-decoration: none; font-size: .9rem; }/* Efecto hover para los enlaces de navegación */
+.nav-links a:hover { color: var(--color-acento); }/* Contenedor para el botón toggle y el enlace de contacto */
 
 .nav-acciones {
-  display: flex;
-  align-items: center;
+  display: flex;/* Para alinear el botón toggle y el enlace de contacto en una fila */
+  align-items: center;/* Para centrar verticalmente el contenido dentro del contenedor */
   gap: 1rem;/* Para separar el botón toggle del enlace de contacto */
 }
 
@@ -173,7 +173,7 @@ body:not(.oscuro) .hero {
 
 .btn-secundario {
   background: transparent;
-  color: var(--color-fondo);
+  color: var(--color-texto);
   text-decoration: none;
   padding: .75rem 1.8rem;
   border-radius: 6px;
@@ -187,10 +187,10 @@ body:not(.oscuro) .hero {
 
 /* ── SECCIONES ── */
 section {
-  padding: 60px 2rem;
+  padding: 60px 2rem;/* Para dar espacio dentro de cada sección */
   max-width: 800px;
   margin: 0 auto;
-  transition: background .3s, color .3s;
+  transition: background .3s, color .3s;/* Para animar el cambio de fondo y color al alternar modo claro/oscuro */
   background: transparent;
 }
 
@@ -199,7 +199,7 @@ section:nth-child(even) {
   background: transparent;
   max-width: 100%;
 }
-section:nth-child(even) > * {
+section:nth-child(even) > * {/* Para que el contenido no se extienda demasiado en pantallas grandes */
   background: transparent;
   max-width: 800px;
   margin-left: auto;
@@ -236,8 +236,8 @@ ul li {
   transition: background .3s, color .3s, border-color .3s;
 }
 
-body:not(.oscuro) ul li { background: white; border-color: var(--color-suave); color: var(--color-oscuro); }
-body.oscuro ul li { background: var(--color-oscuro); border-color: var(--color-suave); color: var(--color-fondo); }
+body:not(.oscuro) ul li { background: white; border-color: var(--color-suave); color: var(--color-oscuro); }/* En modo claro, los items de la lista tienen fondo blanco, borde gris suave y texto oscuro */
+body.oscuro ul li { background: var(--color-oscuro); border-color: var(--color-suave); color: var(--color-fondo); }/* En modo oscuro, los items de la lista tienen fondo oscuro, borde gris suave y texto blanco */
 
 /* ── TESTIMONIO ── */
 blockquote {
@@ -249,8 +249,8 @@ blockquote {
   margin: 0;
   transition: color .3s;
 }
-body:not(.oscuro) blockquote { color: var(--color-suave); }
-body.oscuro blockquote { color: var(--color-suave); }
+body:not(.oscuro) blockquote { color: var(--color-oscuro); }/* En modo claro, las citas tienen un color gris suave para que no compitan con el texto principal */
+body.oscuro blockquote { color: var(--color-suave); }/* En modo oscuro, las citas también tienen un color gris suave para mantener la legibilidad sin ser demasiado llamativas */
 
 cite {
   display: block;
@@ -263,8 +263,12 @@ body:not(.oscuro) cite { color: var(--color-oscuro); }
 body.oscuro cite { color: var(--color-fondo); }
 
 /* ── CONTACTO ── */
+#contacto {
+  text-align: center;
+}
 #contacto a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: .5rem;
   color: var(--color-acento);
   font-size: 1.05rem;
@@ -275,7 +279,10 @@ body.oscuro cite { color: var(--color-fondo); }
   border-radius: 6px;
   transition: background .2s;
 }
-#contacto a:hover { background: var(--color-oscuro); }
+#contacto a:hover { 
+  background: var(--color-fondo); 
+}
+
 
 /* ── FOOTER ── */
 footer {
